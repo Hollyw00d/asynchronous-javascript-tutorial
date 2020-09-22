@@ -41,6 +41,13 @@ function print4() {
     console.log(number4);
 }
 
+/*
+Prints 3 last because it's invoked in an asynchronous function callback:
+1
+2
+4
+3
+*/
 print1();
 print2();
 print3();

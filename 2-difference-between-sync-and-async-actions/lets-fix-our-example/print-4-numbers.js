@@ -32,6 +32,16 @@ function print4() {
     console.log(number4);
 }
 
+/* 
+Prints 3 as second to last because
+print4 function is invoked inside the "callback" function 
+that is invoked as a parameter in the fs.readFile() method,
+which itself is asynchronous:
+1
+2
+3
+4
+*/
 print1();
 print2();
 print3();
