@@ -17,6 +17,10 @@ function print3() {
     const fs = require('fs');
     const callback = function (err, number3) {
         console.log(number3);
+        // invoked print4 function
+        // to ensure that the console.log inside
+        // of the print4 function is called
+        // in the asynchronous callback function
         print4();
     };
     fs.readFile('./number3.txt', 'utf-8', callback);
