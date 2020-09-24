@@ -1,6 +1,6 @@
 import calculateSquare from '../calculate-square.js';
-import pkg from 'chai';
-const {expect} = pkg;
+import chai from 'chai';
+const {expect} = chai;
 
 describe('calculateSquare', function() {
   it('should return 4 if passed 2', function() {
