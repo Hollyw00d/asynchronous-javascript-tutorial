@@ -24,4 +24,18 @@ describe('calculateSquare', function() {
   it('should become rejected if passed a string instead of a number', function(done){
     expect(calculateSquare('string')).to.be.rejected.notify(done);
   });
+
+  it('should resolve with number 4 if passed number 2 and be above 3', function() {
+    return calculateSquare(2).then(result => {
+      expect(result).to.be.above(3);
+      expect(result).to.be.equal(4);
+    });
+  });
+
+  it('should return a rejected promise when passed a string', function() {
+    return calculateSquare('string').catch(reason => {
+      expect(reason).to.not.equal(null);
+      expect(reason.message).to.equal('Argument of type number is expected');
+    });
+  });
 });
