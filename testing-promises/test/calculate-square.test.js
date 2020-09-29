@@ -4,22 +4,24 @@ import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
 const {expect} = chai;
 
-describe('calculateSquare', () => {
-  it('should resolve with number 4 if passed number 2', () => {
+describe('calculateSquare', function() {
+  this.timeout(4000);
+  it('should resolve with number 4 if passed number 2', function(){
+    // Increase time that mocha has to test so it won't timeout
     // return statement signals asynchronous test completion and
     // the .eventually object is part of the syntax
     // for testing an asynchronous function
     return expect(calculateSquare(2)).to.eventually.be.equal(4);
   });
 
-  it('should become fulfilled when passed number 2', () => {
+  it('should become fulfilled when passed number 2', function(){
     return expect(calculateSquare(2)).to.be.fulfilled;
   });
 
   // 2nd parameter passed into the it() function below
   // is a way to test asynchronous functions
   // without using the return keyword
-  it('should become rejected if passed a string instead of a number', (done) => {
+  it('should become rejected if passed a string instead of a number', function(done){
     expect(calculateSquare('string')).to.be.rejected.notify(done);
   });
 });
